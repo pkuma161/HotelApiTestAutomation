@@ -28,6 +28,14 @@ public class BookingApi extends BaseApi {
                 .post(BOOKING_ENDPOINT);
     }
 
+    public static Response updateBooking(Booking payload) {
+        return given()
+                .contentType(ContentType.JSON)
+                .body(payload)
+                .when()
+                .put(BOOKING_ENDPOINT);
+    }
+
     public static Response deleteBooking(int id, String token) {
         return given()
                 .header("Cookie", "token=" + token)

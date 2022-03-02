@@ -55,6 +55,20 @@ public class ApiTest {
 
         assertThat(response.getStatusCode() == 418).isTrue();
     }
+    @Test
+    public void testPartialUpdateBookingWithNameChange() {
+        Booking payload = new Booking.Builder()
+                .setFirstName("Prasann")
+                .setLastName("Singh")
+                .setTotalPrice(200)
+                .setDepositPaid(true)
+                .setAdditionalNeeds("None")
+                .build();
+
+        Response response = BookingApi.updateBooking(payload);
+
+        assertThat(response.getStatusCode() == 200).isTrue();
+    }
 
     @Test
     public void testCreateBookingReturns200() {
@@ -64,8 +78,8 @@ public class ApiTest {
                 .build();
 
         Booking payload = new Booking.Builder()
-                .setFirstName("Mary")
-                .setLastName("Active")
+                .setFirstName("Prasann")
+                .setLastName("Kumar")
                 .setTotalPrice(200)
                 .setDepositPaid(true)
                 .setBookingDates(dates)
